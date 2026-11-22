@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БАЗАР 2.0 | Буна сара, йобай-йой! Чернівці Діскорд</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Comic+Neue:wght@700&display=swap');
+
+        body {
+            background-color: #1a0033;
+            background-image: radial-gradient(#ff00cc 1px, transparent 1px), radial-gradient(#00ffcc 1px, #1a0033 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            color: #fff;
+            font-family: 'Comic Neue', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .marquee-box {
+            background: #ffea00;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px 0;
+            border-bottom: 4px dashed #ff0055;
+            text-transform: uppercase;
+        }
+
+        .top-gif-banner {
+            width: 100%;
+            max-height: 320px;
+            background: #000;
+            border-bottom: 6px ridge gold;
+            box-shadow: 0 0 25px #ff00cc;
+            overflow: hidden;
+        }
+
+        .top-gif-banner img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        header {
+            background: linear-gradient(45deg, #ff0055, #ffcc00, #00ffcc);
+            padding: 30px 15px;
+            border-bottom: 8px ridge gold;
+            box-shadow: 0 0 30px #ff00cc;
+        }
+
+        h1 {
+            font-family: 'Rubik Bubbles', cursive;
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 4px 4px 0px #000, -2px -2px 0px #ff0055;
+            margin: 0;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            background: #000;
+            color: #00ffcc;
+            display: inline-block;
+            padding: 6px 16px;
+            font-size: 1.3rem;
+            margin-top: 10px;
+            border: 2px solid #00ffcc;
+            transform: rotate(-2deg);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.9);
+            border: 4px solid #ffea00;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 8px 8px 0px #ff0055;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.02) rotate(0.5deg);
+        }
+
+        .card h3 {
+            color: #ffea00;
+            font-size: 1.45rem;
+            margin-top: 10px;
+        }
+
+        .price {
+            font-size: 1.35rem;
+            color: #00ffcc;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .btn {
+            background: #ff0055;
+            color: #fff;
+            border: 3px solid #fff;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            text-transform: uppercase;
+            box-shadow: 4px 4px 0 #000;
+            transition: 0.1s;
+        }
+
+        .btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 1px 1px 0 #000;
+        }
+
+        .btn-discord {
+            background: #5865F2;
+            font-size: 1.5rem;
+            padding: 18px 35px;
+            margin: 30px 0;
+            display: inline-block;
+            text-decoration: none;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.07); }
+            100% { transform: scale(1); }
+        }
+
+        #vibe-result {
+            margin-top: 20px;
+            font-size: 1.35rem;
+            color: #ffea00;
+            min-height: 45px;
+            background: #222;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px dashed #00ffcc;
+        }
+
+        .honor-board {
+            margin-top: 40px;
+            border: 6px ridge gold;
+            background: rgba(15, 10, 25, 0.94);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.45);
+        }
+
+        .honor-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #ff00cc;
+            background: #111;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ff0055;
+            color: #ffea00;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            border: 1px solid #ffea00;
+        }
+
+        .dictionary {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .dict-item {
+            border-bottom: 1px dashed rgba(255, 234, 0, 0.35);
+            padding: 10px 0;
+            font-size: 1.15rem;
+        }
+
+        .dict-item:last-child {
+            border-bottom: none;
+        }
+
+        .dict-word {
+            color: #00ffcc;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        #runaway-btn {
+            position: relative;
+            background: #444;
+            margin-top: 40px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 20px;
+            background: #000;
+            border-top: 4px solid #ffea00;
+            font-size: 1rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-box">
+        <marquee scrollamount="10">
+            🔥 БУНА САРА, СУКА, ФАЙНІ ЛЮДИ! На Базарі 2.0 знову завезли хуйню вищого ґатунку: мемчики, леї, пальоний Адідас і войс без гальм! Хто не сказав «буна сара» — йде нахуй в сусідній ряд! 🔥
+        </marquee>
+    </div>
+
+    <!-- ГИФ-БАННЕР НАВЕРХУ -->
+    <div class="top-gif-banner">
+        <img src="https://media.discordapp.net/attachments/1554287436060958752/1563352188531511476/ScreenRecording_10-24-2026-3-39-05__1.gif?ex=6b0434ef&is=6b02e36f&hm=48f0240267e28c4a2df848830fcb18b7c2f19975780a6934bc1c501f3e8bd07b" alt="Базар 2.0 Баннер">
+    </div>
+
+    <header>
+        <h1>БАЗАР 2.0</h1>
+        <div class="subtitle">Буна сара, бля! Найелітніша помийка на Буковині 🍉</div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Фейс-контроль -->
+        <div class="card" style="border-color: #00ffcc;">
+            <h2>🛃 ФЕЙС-КОНТРОЛЬ НА ВХОДІ</h2>
+            <p>Буна сара, хулі так летиш, ніби на останню маршрутку на Гравітон? Стій, Васілій гляне, чи не уйобан ти часом:</p>
+            <button class="btn" onclick="checkVibe()">Сказати «Буна сара!» і пройти</button>
+            <div id="vibe-result">Тицни кнопку, не сци — може пустять, а може й пошлють...</div>
+        </div>
+
+        <!-- Кнопка в ДС -->
+        <a href="https://discord.com" target="_blank" class="btn btn-discord">
+            🚀 ЗАЛЕТІТИ В ВОЙС (БУНА САРА, ПАЦАНИ!)
+        </a>
+
+        <!-- Каталог -->
+        <h2>🛒 ШО ТУТ МОЖНА ВЗЯТИ</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h3>👑 Роль «Головний по тарілочках»</h3>
+                <p>Вриваєшся в войс о 2 ночі з «буна сара, бля!», вмикаєш баси і розказуєш всім, як правильно жити.</p>
+                <div class="price" id="price-1">Ціна: 500 г сємок</div>
+                <button class="btn" onclick="haggle('price-1', 500)">Поторгуватись</button>
+            </div>
+
+            <div class="card">
+                <h3>☕ Кава з Кобилянської</h3>
+                <p>Щоб не вирубило посеред чергової хуйні, коли всі вже пиздять на автопілоті.</p>
+                <div class="price" id="price-2">Ціна: 5 лей і «мерсі файно»</div>
+                <button class="btn" onclick="haggle('price-2', 5)">Збити ціну</button>
+            </div>
+
+            <div class="card">
+                <h3>👟 Шльопки «Abibas» (Елітні)</h3>
+                <p>Плюс сто до авторитету біля 6-го ряду. Навіть адмін тричі подумає, перш ніж тебе замутити.</p>
+                <div class="price" id="price-3">Ціна: 1000 балів карми</div>
+                <button class="btn" onclick="haggle('price-3', 1000)">А дешевше, бля?</button>
+            </div>
+
+        </div>
+
+        <!-- Дошка пошани -->
+        <div class="card honor-board">
+            <h2>🏆 ДОШКА ПОШАНИ «БАЗАРУ 2.0»</h2>
+            <p>Наші легенди, штріхи та уйобани, які зробили цей вечір. Буна сара кожному експонату!</p>
+            <div class="card-grid">
+
+                <div class="card">
+                    <div class="badge">ЕКСПОНАТ #1 • МАЛЮНОК</div>
+                    <img class="honor-photo" src="image_b589eb.jpg" alt="Сіль 1000 кг">
+                    <h3>Пєтярда у вишиванці й з тонкою сіллю</h3>
+                    <p>Високе мистецтво з-під лінійки: на одній нозі — «СІЛЬ 1000 кг», зверху прапори, а на грудях чистий базарний сюр.</p>
+                </div>
+
+                <div class="card">
+                    <div class="badge">ЕКСПОНАТ #2 • НОСКИ</div>
+                    <img class="honor-photo" src="image_b58a08.jpg" alt="Дірявий носок">
+                    <h3>Елітний вентиляційний носок</h3>
+                    <p>Носок із власною п'яткою на свободі. Спеціально для тих, хто сидить у войсі, аж п'яти горять.</p>
+                </div>
+
+                <div class="card">
+                    <div class="badge">ЕКСПОНАТ #3 • НОГИ</div>
+                    <img class="honor-photo" src="image_b58a4a.jpg" alt="Середній палець ногою">
+                    <h3>Дипломатичне вітання ногою</h3>
+                    <p>Коли руки зайняті сємками, а сказати опоненту «буна сара, йди нахуй» треба двома ногами одразу.</p>
+                </div>
+
+                <div class="card">
+                    <div class="badge">ЕКСПОНАТ #4 • ВЛАДА</div>
+                    <img class="honor-photo" src="image_b58d8f.png" alt="Міністр внутрішніх справ">
+                    <h3>Міністр внутрішніх справ «Вайс Сіті»</h3>
+                    <p>«Та мені похуй я власник проєкту, тут мої закони і правила». Класика базарного правосуддя.</p>
+                </div>
+
+                <div class="card">
+                    <div class="badge">ЕКСПОНАТ #5 • РОЗШУК</div>
+                    <img class="honor-photo" src="image_b58dcf.png" alt="Ranger знайде">
+                    <h3>Оперативник Ranger</h3>
+                    <p>«Та сука я тебе найду» — головний девіз розшукового відділу 6-го ряду, коли хтось спиздив останній мем.</p>
+                </div>
+
+                <div class="card">
+                    <div class="badge">ЕКСПОНАТ #6 • ЮТУБ</div>
+                    <img class="honor-photo" src="image_b5e408.jpg" alt="Праймовий Данон">
+                    <h3>Праймовий Данон у 2026-му</h3>
+                    <p>67 млн переглядів на каналі МОГГан: блокбастер, який ми точно заслужили після нічних войсів.</p>
+                </div>
+
+                <div class="card">
+                    <div class="badge">ЕКСПОНАТ #7 • РОБЛОКС</div>
+                    <img class="honor-photo" src="image_b5e76d.png" alt="Кампутер сам іді нахуй">
+                    <h3>Офісний бунт у кепці</h3>
+                    <p>Коли «кампутер сам іді нахуй», а на моніторі ноутбука все вже по ділу написано.</p>
+                </div>
+
+                <div class="card">
+                    <div class="badge">ЕКСПОНАТ #8 • РУЛЕТКА</div>
+                    <img class="honor-photo" src="image_b5e7c8.jpg" alt="Омега рулетка">
+                    <h3>Stsiamba3531 у відеочаті</h3>
+                    <p>Навушники на вухах, мікрофон майже в роті, а за вікном — чистий базарний ефір.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Словничок -->
+        <div class="card dictionary">
+            <h2>📖 СЛОВНИЧОК ДЛЯ ЗАЛЬОТНИХ, ШОБ НЕ ПЛУТАЛИ</h2>
+            <div class="dict-item"><span class="dict-word">Буна сара</span> — добрий вечір. Зайшов у вечірній войс і не сказав — значить, не повага.</div>
+            <div class="dict-item"><span class="dict-word">Буна зіуа</span> — добрий день. Для тих, хто прокинувся ще до обіду, хуй знає як.</div>
+            <div class="dict-item"><span class="dict-word">Мерсі файно</span> — дякую, бля. Коли хочеш сказати «дякую», але так, ніби в тебе є манери.</div>
+            <div class="dict-item"><span class="dict-word">Файний / Коліжанка</span> — свій тип чи дівчина, яка витримує весь цей базарний угар.</div>
+            <div class="dict-item"><span class="dict-word">Штріх</span> — тип, від якого завжди можна чекати якоїсь їбанутої витівки.</div>
+            <div class="dict-item"><span class="dict-word">Леї</span> — місцева валюта, коли звичайні гроші вже не покривають рівень абсурду.</div>
+        </div>
+
+        <!-- Кнопка-ловушка -->
+        <div>
+            <button id="runaway-btn" class="btn" onmouseover="runAway()">
+                📢 Поскаржитись адмінам на блядство
+            </button>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 ТОВ «Базар 2.0 Интернешнл». Буна сара, хто доскролив — ти теж в ділі.<br>
+        Зліплено на колінці між 5-м і 6-м рядом Калинівського ринку.
+    </footer>
+
+    <script>
+        const phrases = [
+            "Буна сара, бля! Заходь, бери табуретку, сідай в войс і тільки мікрофон не обгризай!",
+            "О, «буна сара» каже... Ну хулі, за привітання проходь, але без хуйні в войсі!",
+            "Буна зіуа, ти шо, тільки очі продрал?! Каву в зуби і давай до пацанів!",
+            "Ану дихни сюди! ... Та ти не п'яний, ти просто їбанутий по життю. Заходь, свій!",
+            "Буна сара, файний штріх! Сьогодні тобі знижка — бери за «дякую» і не пизди!"
+        ];
+
+        function checkVibe() {
+            const res = document.getElementById('vibe-result');
+            const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+            res.innerHTML = "🗣️ <b>Васілій каже:</b> «" + randomPhrase + "»";
+        }
+
+        function haggle(elementId, basePrice) {
+            const el = document.getElementById(elementId);
+            const responses = [
+                `Ти шо, охуїв?! Я сам дорожче брав! Ладно, за «буна сара» буде ${basePrice - 1}, і то по-братськи!`,
+                `Та забирай вже за «мерсі файно», тільки не їби мені мізки, бля!`,
+                `Ой всьо, тепер ${basePrice * 2}! Бо ти занадто хитра жопа!`,
+                `Я на цьому ділі в мінусах сиджу, бля! Бери як є або йди до сусідів!`
+            ];
+            el.innerText = responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function runAway() {
+            const btn = document.getElementById('runaway-btn');
+            const x = Math.random() * (window.innerWidth - 300) - (window.innerWidth / 2 - 150);
+            const y = Math.random() * 200 - 100;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+            btn.innerText = "Буна сара, хуй тобі, а не скарга! 😜";
+        }
+    </script>
+
+</body>
+</html>
